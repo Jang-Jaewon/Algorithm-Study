@@ -1,36 +1,31 @@
-# 회문 문자열 검사
+# 숫자만 추출
 # 풀이1
-def solution(l):
-  res = []
-  reverse_l = [i[::-1] for i in l]
-  for i in range(len(l)):
-    if l[i] == reverse_l[i]:
-      res.append('YES')
-    else: 
-      res.append('NO')
-  return res
+def solution(data):
+  only_num = [i for i in data if 48 <= ord(i) <=57]
+  num = int("".join(only_num))
+  prime_list = [i for i in range(1, num+1) if num % i == 0]
+  return num, len(prime_list)
 
-# N = int(input())
-# l = [input().upper() for _ in range(N)]
-N = 5
-l = ['level', 'moon', 'abcba', 'soon', 'gooG']
-answer = solution(l)
-for i in range(len(answer)):
-  print(f"#{i+1} {answer[i]}")
+# data = input()
+data = "g0en2Ts8eSoft"
+answer = solution(data)
+for i in answer:
+  print(i)
 
 # 풀이2
-def solution(s):
-  s = s.upper()
-  size = len(s)
-  for i in range(size//2):
-    if s[i] != s[-i-1]:
-      return "NO"
-      break
-    else:
-      return "YES"
+def solution(data):
+  num = 0
+  cnt = 0 
+  for i in data:
+    if i.isdecimal():
+      num = num * 10 + int(i)
+  for i in range(1, num+1):
+    if num % i == 0:
+      cnt += 1
+  return [num, cnt]
 
-# N = int(input())
-N = 5
-for i in range(N):
-  s = input()
-  print(f"#{i+1} {solution(s)}")
+# data = input()
+data = "g0en2Ts8eSoft"
+answer = solution(data)
+for i in answer:
+  print(i)
