@@ -1,0 +1,11 @@
+# 정수 제곱근 판별
+def solution(n):
+    # answer = 0
+    n = n ** 0.5
+    if n == int(n):
+      return (n+1) ** 2
+    else:
+      -1
+
+n = 121
+print(solution(n))
