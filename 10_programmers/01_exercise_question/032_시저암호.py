@@ -11,5 +11,3 @@ def solution(s, n):
 s = "aBz"
 n = 4
 print(solution(s, n))
-
-print("test")
